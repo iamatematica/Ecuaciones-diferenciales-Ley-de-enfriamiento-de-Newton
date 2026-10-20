@@ -224,10 +224,10 @@ textarea:focus{outline:2px solid var(--blue);border-color:var(--blue)}
 .rep-box .v{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--navy)}
 .rep-box .d{font-size:.85rem;color:var(--muted)}
 input.txt{width:100%;font:400 1rem 'Hanken Grotesk',sans-serif;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:#fff}
-.mapa{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
-.mapa div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:.9rem}
-.mapa .n{font:500 .68rem 'Fira Code',monospace;letter-spacing:.12em;color:var(--blue)}
-.mapa .t{font-family:'Fraunces',serif;color:var(--navy);font-size:1rem;margin:2px 0 4px}
+.mapa{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:14px 0}
+.mapa>div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:.9rem}
+.mapa>div .n{font:500 .68rem 'Fira Code',monospace;letter-spacing:.12em;color:var(--blue);text-transform:uppercase}
+.mapa>div .t{font-family:'Fraunces',serif;color:var(--navy);font-size:1.05rem;margin:2px 0 4px}
 @media print{.stepper,.fab,.navsc,.site-footer,.topbar{display:none} .sec-hidden{position:static;visibility:visible;width:auto}}
 </style>
 </head>
@@ -264,7 +264,7 @@ input.txt{width:100%;font:400 1rem 'Hanken Grotesk',sans-serif;padding:7px 10px;
   <div class="hero">
     <div class="sub">Unidad 5 · Ecuaciones diferenciales</div>
     <h1>¿Qué tan rápido se enfría?</h1>
-    <p class="lead">Un problema completo, de la frase en palabras al número final. Primero traducís una ley física a una ecuación diferencial, después la resolvés por variables separables y al final usás los datos para encontrar la constante que nadie te dio. Cerrás con dos problemas hermanos para hacer solo.</p>
+    <p class="lead">Un problema completo, de la frase en palabras al número final. Primero ves qué significa <b>modelar</b> un fenómeno real; después traducís una ley física a una ecuación diferencial, después la resolvés por variables separables y al final usás los datos para encontrar la constante que nadie te dio. Cerrás con dos problemas hermanos para hacer solo.</p>
   </div>
   <div class="card">
     <div class="badge">El problema</div>
@@ -274,6 +274,7 @@ input.txt{width:100%;font:400 1rem 'Hanken Grotesk',sans-serif;padding:7px 10px;
   <div class="def">
     <div class="tt">Al terminar vas a poder</div>
     <ul class="lista">
+      <li>Reconocer qué es un modelo matemático, qué hipótesis simplificadoras esconde y hasta dónde vale.</li>
       <li>Traducir "la velocidad de cambio es proporcional a la diferencia" a \(\dfrac{dT}{dt} = K\,(T - T_a)\).</li>
       <li>Resolver esa ecuación por variables separables, justificando cada paso (incluido por qué se van las barras del valor absoluto).</li>
       <li>Usar la condición inicial para hallar \(A\) y el segundo dato para hallar \(K\), sin confundir los dos.</li>
@@ -281,20 +282,78 @@ input.txt{width:100%;font:400 1rem 'Hanken Grotesk',sans-serif;padding:7px 10px;
     </ul>
   </div>
   <div class="ruta">
-    <button data-go="1"><div class="n">1</div><div class="t">La ley</div><div class="d">De la frase en palabras a la ecuación diferencial.</div></button>
-    <button data-go="2"><div class="n">2</div><div class="t">Plantear</div><div class="d">Los datos, la ecuación con números y qué buscamos.</div></button>
-    <button data-go="3"><div class="n">3</div><div class="t">Resolver</div><div class="d">Variables separables, paso por paso. Vos decidís qué sigue.</div></button>
-    <button data-go="4"><div class="n">4</div><div class="t">Las constantes</div><div class="d">Primero A con t = 0, después K con t = 10. Con laboratorio.</div></button>
-    <button data-go="5"><div class="n">5</div><div class="t">Práctica</div><div class="d">Dos problemas hermanos, con pistas y resolución completa.</div></button>
-    <button data-go="6"><div class="n">6</div><div class="t">Cierre</div><div class="d">El mapa del método y tu reporte en PDF.</div></button>
+    <button data-go="1"><div class="n">1</div><div class="t">Modelar</div><div class="d">Qué es un modelo matemático, qué hipótesis esconde y por qué es una ecuación diferencial.</div></button>
+    <button data-go="2"><div class="n">2</div><div class="t">La ley</div><div class="d">De la frase en palabras a la ecuación diferencial.</div></button>
+    <button data-go="3"><div class="n">3</div><div class="t">Plantear</div><div class="d">Los datos, la ecuación con números y qué buscamos.</div></button>
+    <button data-go="4"><div class="n">4</div><div class="t">Resolver</div><div class="d">Variables separables, paso por paso. Vos decidís qué sigue.</div></button>
+    <button data-go="5"><div class="n">5</div><div class="t">Las constantes</div><div class="d">Primero A con t = 0, después K con t = 10. Con laboratorio.</div></button>
+    <button data-go="6"><div class="n">6</div><div class="t">Práctica</div><div class="d">Dos problemas hermanos, con pistas y resolución completa.</div></button>
+    <button data-go="7"><div class="n">7</div><div class="t">Cierre</div><div class="d">Volver a la realidad: qué predice el modelo, hasta dónde vale, y tu reporte en PDF.</div></button>
   </div>
   <div class="nota"><div class="tt">Cómo se recorre</div>Las pantallas van en orden pero ninguna se bloquea. Antes de cada paso se te pregunta qué harías; la explicación aparece después de responder, acertes o no. Tené la carpeta a mano: lo que se calcula acá se escribe ahí. Con la tecla <b>T</b> se abre la tabla de fórmulas.</div>
-  <div class="navsc"><span></span><button class="btn" data-go="1">Empezar · La ley →</button></div>
+  <div class="navsc"><span></span><button class="btn" data-go="1">Empezar · Modelar →</button></div>
 </section>
 
-<!-- 1 LA LEY -->
+<!-- 1 MODELAR -->
 <section id="s1" class="sec-hidden">
   <div class="badge">Pantalla 1</div>
+  <h2>Modelar: de un problema real a una ecuación</h2>
+  <p class="lead">Antes de resolver nada, conviene ver qué estamos haciendo. Un objeto caliente en una habitación es un pedazo de realidad; una ecuación diferencial es un objeto matemático. Pasar de uno a otro se llama <b>modelar</b>, y es lo que hacen los ingenieros, los físicos y cualquiera que quiera predecir algo.</p>
+
+  <div class="card">
+    <p>Pensá en el plano del subte. No es la ciudad: las distancias no están a escala, las curvas de las vías no aparecen y los edificios no existen. Sin embargo, con el plano llegás a destino. Dejó afuera todo lo que no importa para la pregunta "¿cómo llego?" y conservó lo que sí: las estaciones y cómo se conectan.</p>
+    <p style="margin-bottom:0">Un modelo matemático hace lo mismo con un fenómeno: deja afuera lo que no importa para la pregunta y escribe lo que sí importa en lenguaje matemático. Y como está en lenguaje matemático, se puede calcular con él: eso es lo que permite <b>predecir</b>.</p>
+  </div>
+
+  <div class="def"><div class="tt">Modelo matemático</div>
+    Una descripción simplificada de un fenómeno real, escrita en lenguaje matemático, construida para responder una pregunta concreta. Simplificada quiere decir que se apoya en <b>hipótesis</b>: cosas que suponemos ciertas para que el problema sea tratable. Un modelo no es verdadero o falso: es más o menos útil para la pregunta que se hizo.
+  </div>
+
+  <h3>El ciclo de modelización</h3>
+  <p>Modelar no es un paso: es un recorrido de ida y vuelta entre la realidad y la matemática. Estas son sus estaciones, y dónde las vas a encontrar en esta SPA.</p>
+  <div class="mapa">
+    <div><div class="n">1 · Realidad</div><div class="t">El fenómeno</div>Un objeto caliente se enfría en una habitación. Lo observamos y lo medimos: temperaturas y tiempos.</div>
+    <div><div class="n">2 · Simplificar</div><div class="t">Las hipótesis</div>Qué vamos a suponer para que el problema sea tratable. Son las letras chicas del modelo (abajo las explicitamos).</div>
+    <div><div class="n">3 · Matemática</div><div class="t">El modelo</div>La ley física escrita como ecuación: \(\dfrac{dT}{dt} = K\,(T - T_a)\). Pantallas 2 y 3.</div>
+    <div><div class="n">4 · Matemática</div><div class="t">Resolver</div>De la ecuación a la función \(T(t)\), por variables separables. Pantalla 4.</div>
+    <div><div class="n">5 · Confrontar</div><div class="t">Calibrar con datos</div>La ley no dice cuánto vale \(K\): los datos medidos lo fijan. Pantalla 5.</div>
+    <div><div class="n">6 · Realidad</div><div class="t">Predecir y acotar</div>Usar \(T(t)\) para saber qué va a pasar, y decir hasta dónde se le puede creer. Pantalla 7.</div>
+  </div>
+
+  <h3>Las hipótesis que esconde la ley de Newton</h3>
+  <p>La ley suena natural, pero supone varias cosas. Conviene decirlas en voz alta, porque son las que marcan hasta dónde vale el modelo.</p>
+  <div class="card">
+    <ul class="lista" style="margin:0">
+      <li><b>El ambiente no cambia de temperatura.</b> El objeto le entrega calor a la habitación, pero la habitación es tan grande que no se entera. Razonable para un objeto chico en un cuarto grande; falso para una pava en una caja cerrada.</li>
+      <li><b>El objeto tiene una sola temperatura en cada instante.</b> No está más caliente adentro que afuera. Razonable para una pieza chica o un buen conductor; falso para un bloque grueso recién fundido.</li>
+      <li><b>\(K\) es constante.</b> La facilidad con que el objeto intercambia calor no cambia durante el proceso. Razonable si no cambia nada alrededor (no se prende un ventilador a mitad de camino).</li>
+      <li><b>No hay otras formas de perder calor que importen.</b> A temperaturas muy altas, el objeto también pierde calor por radiación, y esa pérdida no es proporcional a la diferencia. Razonable a temperaturas de taller; falso en un horno.</li>
+    </ul>
+  </div>
+
+  <h3>Clasificá</h3>
+  <p>Tomamos una situación del taller: una pieza impresa en 3D sale del horno de templado a \(90\) °C y queda sobre la mesa, a \(24\) °C. Para cada afirmación, decidí si es algo que pasa en la <b>realidad</b> (un fenómeno o una medición), una <b>hipótesis</b> (algo que suponemos para simplificar) o parte del <b>modelo</b> (un objeto matemático).</p>
+  <div class="trad" id="clas">
+    <div class="tt">Realidad, hipótesis o modelo</div>
+    <div class="trad-row" data-crow="0"><div class="frase">La pieza sale caliente del horno y con el tiempo queda a la temperatura del taller.</div><div class="chips"><button type="button" class="chip" data-c="0">Realidad</button><button type="button" class="chip" data-c="1">Hipótesis</button><button type="button" class="chip" data-c="2">Modelo</button></div></div>
+    <div class="trad-row" data-crow="1"><div class="frase">La temperatura del taller no cambia mientras la pieza se enfría.</div><div class="chips"><button type="button" class="chip" data-c="0">Realidad</button><button type="button" class="chip" data-c="1">Hipótesis</button><button type="button" class="chip" data-c="2">Modelo</button></div></div>
+    <div class="trad-row" data-crow="2"><div class="frase">\(\dfrac{dT}{dt} = K\,(T - 24)\)</div><div class="chips"><button type="button" class="chip" data-c="0">Realidad</button><button type="button" class="chip" data-c="1">Hipótesis</button><button type="button" class="chip" data-c="2">Modelo</button></div></div>
+    <div class="trad-row" data-crow="3"><div class="frase">Toda la pieza está a la misma temperatura en cada instante.</div><div class="chips"><button type="button" class="chip" data-c="0">Realidad</button><button type="button" class="chip" data-c="1">Hipótesis</button><button type="button" class="chip" data-c="2">Modelo</button></div></div>
+    <div class="trad-row" data-crow="4"><div class="frase">A los \(10\) minutos el termómetro marca \(54\) °C.</div><div class="chips"><button type="button" class="chip" data-c="0">Realidad</button><button type="button" class="chip" data-c="1">Hipótesis</button><button type="button" class="chip" data-c="2">Modelo</button></div></div>
+    <div class="trad-row" data-crow="5"><div class="frase">\(T(t) = 24 + 66\,e^{-0{,}08\,t}\)</div><div class="chips"><button type="button" class="chip" data-c="0">Realidad</button><button type="button" class="chip" data-c="1">Hipótesis</button><button type="button" class="chip" data-c="2">Modelo</button></div></div>
+    <div class="trad-res" id="clasRes"></div>
+  </div>
+
+  <h3>¿Por qué una ecuación diferencial?</h3>
+  <p>Si lo que queremos es la temperatura en cada instante, ¿por qué el modelo no es directamente una fórmula para \(T(t)\)? Pensalo antes de elegir.</p>
+  <div id="modQ"></div>
+  <div class="nota"><div class="tt">Lo que queda</div>La física casi nunca nos dice cuánto vale una magnitud: nos dice <b>cómo cambia</b>. "La rapidez de enfriamiento es proporcional a la diferencia" habla de la derivada, no de \(T\). Por eso el modelo nace como ecuación diferencial, y para llegar a la función hay que resolverla. Ese es el trabajo de las próximas pantallas.</div>
+  <div class="navsc"><button class="btn ghost" data-go="0">← Inicio</button><button class="btn" data-go="2">Seguir · La ley →</button></div>
+</section>
+
+<!-- 2 LA LEY -->
+<section id="s2" class="sec-hidden">
+  <div class="badge">Pantalla 2</div>
   <h2>La ley, en palabras y en símbolos</h2>
   <p class="lead">El problema se apoya en la <b>Ley de enfriamiento de Newton</b>. Antes de escribir una sola fórmula, leela dos veces:</p>
   <p class="cita">La velocidad a la que cambia la temperatura de un objeto es proporcional a la diferencia entre su temperatura y la temperatura del ambiente.</p>
@@ -317,12 +376,12 @@ input.txt{width:100%;font:400 1rem 'Hanken Grotesk',sans-serif;padding:7px 10px;
   <h3>Antes de seguir: el signo de \(K\)</h3>
   <p>Todavía no calculamos nada, pero ya se puede razonar algo sobre \(K\). Pensalo con el problema: el objeto está a 100 °C, el ambiente a 30 °C.</p>
   <div id="leyQ"></div>
-  <div class="navsc"><button class="btn ghost" data-go="0">← Inicio</button><button class="btn" data-go="2">Seguir · Plantear →</button></div>
+  <div class="navsc"><button class="btn ghost" data-go="1">← Modelar</button><button class="btn" data-go="3">Seguir · Plantear →</button></div>
 </section>
 
-<!-- 2 PLANTEAR -->
-<section id="s2" class="sec-hidden">
-  <div class="badge">Pantalla 2</div>
+<!-- 3 PLANTEAR -->
+<section id="s3" class="sec-hidden">
+  <div class="badge">Pantalla 3</div>
   <h2>Plantear con nuestros datos</h2>
   <p class="lead">Volvemos al enunciado y sacamos todo lo que dice. Son tres datos, y cada uno va a cumplir un papel distinto.</p>
   <div class="card">
@@ -339,12 +398,12 @@ input.txt{width:100%;font:400 1rem 'Hanken Grotesk',sans-serif;padding:7px 10px;
     El objetivo es hallar \(K\). Pero \(K\) está adentro de una ecuación diferencial: para llegar a él, primero hay que resolverla y encontrar \(T(t)\).
   </div>
   <div id="planQ2"></div>
-  <div class="navsc"><button class="btn ghost" data-go="1">← La ley</button><button class="btn" data-go="3">Seguir · Resolver →</button></div>
+  <div class="navsc"><button class="btn ghost" data-go="2">← La ley</button><button class="btn" data-go="4">Seguir · Resolver →</button></div>
 </section>
 
-<!-- 3 RESOLVER -->
-<section id="s3" class="sec-hidden">
-  <div class="badge">Pantalla 3</div>
+<!-- 4 RESOLVER -->
+<section id="s4" class="sec-hidden">
+  <div class="badge">Pantalla 4</div>
   <h2>Resolver la ecuación diferencial</h2>
   <p class="lead">\(\dfrac{dT}{dt} = K\,(T - 30)\) es de <b>variables separables</b>: se puede agrupar todo lo que tiene \(T\) (con \(dT\)) de un lado y todo lo que tiene \(t\) (con \(dt\)) del otro. En cada paso, primero decidís vos qué sigue; después se muestra el desarrollo.</p>
 
@@ -359,12 +418,12 @@ input.txt{width:100%;font:400 1rem 'Hanken Grotesk',sans-serif;padding:7px 10px;
     \[T(t) = 30 + A\,e^{K\,t}\]
     Describe la temperatura en cualquier instante \(t\)... pero tiene dos constantes desconocidas, \(A\) y \(K\). Por eso el enunciado dio dos datos: uno para cada una.
   </div>
-  <div class="navsc"><button class="btn ghost" data-go="2">← Plantear</button><button class="btn" data-go="4">Seguir · Las constantes →</button></div>
+  <div class="navsc"><button class="btn ghost" data-go="3">← Plantear</button><button class="btn" data-go="5">Seguir · Las constantes →</button></div>
 </section>
 
-<!-- 4 CONSTANTES -->
-<section id="s4" class="sec-hidden">
-  <div class="badge">Pantalla 4</div>
+<!-- 5 CONSTANTES -->
+<section id="s5" class="sec-hidden">
+  <div class="badge">Pantalla 5</div>
   <h2>Encontrar las constantes</h2>
   <p class="lead">Tenemos \(T(t) = 30 + A\,e^{K\,t}\) y dos datos: \(T(0) = 100\) y \(T(10) = 80\). El orden importa: la condición inicial primero, porque en \(t = 0\) la exponencial vale \(1\) y \(K\) desaparece. Así \(A\) sale sola.</p>
 
@@ -403,6 +462,7 @@ input.txt{width:100%;font:400 1rem 'Hanken Grotesk',sans-serif;padding:7px 10px;
   </div>
   <div id="kQ2"></div>
 
+  <div id="kQ3"></div>
   <div class="warn"><div class="tt">Los errores que más se repiten</div>
     <ul class="lista">
       <li><b>\(A = 100\)</b> "porque \(T(0) = 100\)". El \(30\) también está en \(t = 0\): \(100 = 30 + A\), \(A = 70\). Con \(A = 100\) la función arranca en \(130\) °C.</li>
@@ -414,22 +474,22 @@ input.txt{width:100%;font:400 1rem 'Hanken Grotesk',sans-serif;padding:7px 10px;
   </div>
   </div><!-- /gK -->
   </div><!-- /gA -->
-  <div class="navsc"><button class="btn ghost" data-go="3">← Resolver</button><button class="btn" data-go="5">Seguir · Práctica →</button></div>
+  <div class="navsc"><button class="btn ghost" data-go="4">← Resolver</button><button class="btn" data-go="6">Seguir · Práctica →</button></div>
 </section>
 
-<!-- 5 PRÁCTICA -->
-<section id="s5" class="sec-hidden">
-  <div class="badge">Pantalla 5</div>
+<!-- 6 PRÁCTICA -->
+<section id="s6" class="sec-hidden">
+  <div class="badge">Pantalla 6</div>
   <h2>Práctica · dos problemas hermanos</h2>
   <p class="lead">La misma ley, el mismo camino, otros números. Cada problema trae todo lo que necesitás y se resuelve en los mismos cuatro movimientos: ecuación, \(A\), \(K\) y comprobación. Hacé cada parte en la carpeta antes de responder. Las pistas se piden de a una; la resolución completa se abre después del primer intento.</p>
   <div class="progreso" id="progreso"></div>
   <div id="listaEj"></div>
-  <div class="navsc"><button class="btn ghost" data-go="4">← Las constantes</button><button class="btn" data-go="6">Seguir · Cierre →</button></div>
+  <div class="navsc"><button class="btn ghost" data-go="5">← Las constantes</button><button class="btn" data-go="7">Seguir · Cierre →</button></div>
 </section>
 
-<!-- 6 CIERRE -->
-<section id="s6" class="sec-hidden">
-  <div class="badge">Pantalla 6</div>
+<!-- 7 CIERRE -->
+<section id="s7" class="sec-hidden">
+  <div class="badge">Pantalla 7</div>
   <h2>Cierre y reporte</h2>
   <p class="lead">Un problema de enfriamiento se resuelve siempre con el mismo mapa. Guardalo: sirve para cualquier cuerpo que se enfría o se calienta hacia un ambiente constante.</p>
   <div class="mapa">
@@ -441,6 +501,13 @@ input.txt{width:100%;font:400 1rem 'Hanken Grotesk',sans-serif;padding:7px 10px;
     <div><div class="n">6</div><div class="t">Controlar</div>\(K < 0\) si se enfría; \(T(0)\) y \(T(t_1)\) tienen que dar los datos</div>
   </div>
   <div class="nota"><div class="tt">Lo que queda</div>Toda la clase se puede resumir en una frase: <b>la diferencia con el ambiente decae exponencialmente</b>. \(T - T_a = A\,e^{Kt}\). El objeto nunca llega al ambiente, pero se le acerca tanto como quieras: cuando \(t\) crece, \(e^{Kt} \to 0\) (porque \(K < 0\)) y \(T \to T_a\).</div>
+
+  <h3>Volver a la realidad</h3>
+  <p>El ciclo de modelización termina donde empezó: en el fenómeno. Con \(T(t) = 30 + 70\,e^{K\,t}\) el modelo <b>predice</b> cosas que nadie midió: a los \(20\) minutos el objeto está a \(65{,}7\) °C, a la hora está a \(39{,}3\) °C, y nunca baja de \(30\) °C. Esas predicciones valen mientras valgan las hipótesis de la pantalla 1. Si alguna falla, el modelo sigue dando números, pero ya no describe lo que pasa.</p>
+  <div id="cierreQ"></div>
+  <div class="def"><div class="tt">Un modelo se juzga por su utilidad</div>
+    La ley de Newton no es "la verdad" sobre el enfriamiento: es una descripción que funciona muy bien en un rango (objetos chicos, ambientes grandes, diferencias de temperatura moderadas) y deja de funcionar fuera de él. Saber eso es parte de saber modelar. Cuando el modelo falla, la salida no es tirarlo: es revisar qué hipótesis se rompió y construir uno mejor. Así avanza la física, y así se trabaja en el taller.
+  </div>
 
   <div class="card">
     <div class="grid2">
@@ -455,7 +522,7 @@ input.txt{width:100%;font:400 1rem 'Hanken Grotesk',sans-serif;padding:7px 10px;
       <span id="pdfAviso" style="font-size:.85rem;color:var(--muted)"></span>
     </div>
   </div>
-  <div class="navsc"><button class="btn ghost" data-go="5">← Práctica</button><span></span></div>
+  <div class="navsc"><button class="btn ghost" data-go="6">← Práctica</button><span></span></div>
 </section>
 
 </main>
@@ -519,13 +586,39 @@ function tex(el){ if (window.renderMathInElement) renderMathInElement(el||docume
 
 /* ===================== CONTENIDO ===================== */
 /* Ítems: tipo 'mcq' (opts, correct, fb por opción, reveal opcional) o 'num' (resp, tol, fbNum, sol).
-   grupo: ley · plantear · resolver · constantes · ej2 · ej3 */
+   grupo: modelar · ley · plantear · resolver · constantes · cierre · ej2 · ej3 */
 const TRAD = [
   {correct:1, ok:r`La velocidad de cambio de una magnitud es su derivada respecto del tiempo: \(\dfrac{dT}{dt}\).`, no:[r`\(T(t)\) es la temperatura misma, no qué tan rápido cambia. Lo que cambia por unidad de tiempo es la derivada, \(\dfrac{dT}{dt}\).`, '', r`\(T - T_a\) es la diferencia con el ambiente: es el otro pedazo de la frase. La "velocidad a la que cambia" es la derivada, \(\dfrac{dT}{dt}\).`]},
   {correct:2, ok:r`"Diferencia" es resta: temperatura del objeto menos la del ambiente, \(T - T_a\).`, no:[r`"Diferencia" es una resta, no una suma. \(T - T_a\) mide cuánto más caliente está el objeto que el ambiente.`, r`Un cociente compararía por división. La frase dice "diferencia": \(T - T_a\).`, '']},
   {correct:1, ok:r`"Proporcional a" significa "igual a una constante por": \(K\cdot(T - T_a)\). Esa constante es la que buscamos.`, no:[r`Elevar al cuadrado no es proporcionalidad: si la diferencia se duplica, el cuadrado se cuadruplica. Proporcional es "una constante por": \(K\cdot(\ldots)\).`, '', r`Sumar una constante no es proporcionalidad: con diferencia cero la velocidad sería \(K\), y un objeto a la temperatura del ambiente no cambia. Proporcional es multiplicar: \(K\cdot(\ldots)\).`]}
 ];
+const CLAS = [
+  {correct:0, fb:[r`Es lo que se observa: el fenómeno que queremos describir.`, r`No es una suposición: es lo que pasa, se puede ver y medir. Es la <b>realidad</b> que el modelo intenta describir.`, r`No tiene ninguna matemática: es la descripción del fenómeno tal como ocurre. Es <b>realidad</b>.`]},
+  {correct:1, fb:[r`No se midió que el taller no cambie: se <b>supone</b>, porque el taller es grande y la pieza chica. Es una hipótesis.`, r`Es lo que suponemos para simplificar: en realidad la pieza le entrega algo de calor al taller, pero tan poco que lo ignoramos.`, r`No es un objeto matemático: es una suposición sobre la realidad que hace posible escribir el modelo. Es una <b>hipótesis</b>.`]},
+  {correct:2, fb:[r`Una ecuación no ocurre en el taller: es la traducción matemática de la ley. Es el <b>modelo</b>.`, r`No es algo que supongamos: es lo que resulta de escribir la ley en lenguaje matemático, apoyándonos en las hipótesis. Es el <b>modelo</b>.`, r`Es la ecuación diferencial: el modelo, la parte matemática del recorrido.`]},
+  {correct:1, fb:[r`Nadie midió la temperatura en el centro de la pieza: se <b>supone</b> que es la misma que afuera. Es una hipótesis, y de las que más fácil se rompen (en un bloque grueso no vale).`, r`Es una suposición: la pieza es chica y el calor se reparte rápido, así que le asignamos una sola temperatura. Es lo que permite que \(T\) sea un solo número en cada instante.`, r`No es matemática: es una suposición sobre el objeto, que después se refleja en el modelo (una sola función \(T\)). Es una <b>hipótesis</b>.`]},
+  {correct:0, fb:[r`Es una medición: un número que viene del termómetro, no del modelo. Son los datos con los que después se calibra.`, r`No se supone: se mide. Es un dato de la <b>realidad</b>, y es justamente con estos datos que se fijan las constantes del modelo.`, r`El modelo puede predecir \(54\) °C, pero esta afirmación dice que el termómetro lo <b>marcó</b>: es una medición, <b>realidad</b>.`]},
+  {correct:2, fb:[r`Esta función no se mide: se deduce resolviendo la ecuación y calibrando con los datos. Es el <b>modelo</b> ya resuelto.`, r`No es una suposición: es el resultado de resolver la ecuación diferencial. Es el <b>modelo</b> en su forma final, listo para predecir.`, r`Es la solución del modelo: la función que resume todo lo anterior y con la que se predice.`]}
+];
 const ITEMS = [
+ {id:'q_porqueED', tipo:'mcq', grupo:'modelar', tt:'Por qué una ecuación diferencial', enun:r`¿Por qué el modelo del enfriamiento es una ecuación diferencial y no directamente una fórmula para \(T(t)\)?`,
+  opts:[r`Porque para la temperatura no existen fórmulas directas: siempre hay que integrar.`, r`Porque una ecuación diferencial es más exacta que una fórmula.`, r`Porque lo que la física dice es cómo <b>cambia</b> la temperatura en cada instante, no cuánto vale. De la ley de cambio a la función se pasa resolviendo la ecuación.`, r`Porque el enunciado pide la constante \(K\), y \(K\) solo aparece en ecuaciones diferenciales.`], correct:2,
+  fb:[r`Sí existe una fórmula para \(T(t)\): es la que vamos a encontrar, \(T = T_a + A\,e^{Kt}\). Lo que pasa es que la física no la da de entrada: da la ley de cambio, y la fórmula hay que deducirla.`,
+      r`La exactitud no es el motivo: la fórmula \(T(t)\) que sale de resolver la ecuación es tan exacta como la ecuación. El motivo es qué información da la física: cómo cambia \(T\), no cuánto vale.`,
+      r`La ley de Newton habla de la rapidez con que cambia la temperatura, es decir, de la derivada. Esa información se escribe naturalmente como ecuación diferencial, y la función \(T(t)\) es lo que se obtiene al resolverla.`,
+      r`\(K\) aparece también en la función resuelta, \(T = 30 + 70\,e^{Kt}\). El modelo es una ecuación diferencial por lo que dice la física: cómo cambia \(T\), no cuánto vale.`]},
+ {id:'q_calib', tipo:'mcq', grupo:'constantes', tt:'Qué hicimos con los datos', enun:r`En el recorrido usamos tres números del enunciado: \(30\), \(100\) y \(80\) (a los \(10\) minutos). ¿Qué papel jugaron en el modelo?`,
+  opts:[r`Fueron la solución del problema.`, r`Calibraron el modelo: la ley dice la <b>forma</b> de la ecuación, pero no el valor de sus constantes. Los datos medidos las fijaron.`, r`Sirvieron para demostrar que la ley de Newton es verdadera.`, r`Solo el \(30\) se usó de verdad; los otros dos eran para despistar.`], correct:1,
+  fb:[r`La solución es la función \(T(t)\) y el valor de \(K\). Los datos no son la solución: son lo que permitió fijar las constantes que la ley deja libres. A eso se le llama <b>calibrar</b> el modelo.`,
+      r`La ley de Newton vale para cualquier objeto en cualquier ambiente, así que no puede decir cuánto valen \(T_a\), \(A\) ni \(K\): eso depende de cada caso. Los tres datos convirtieron la ley general en el modelo de <b>este</b> objeto en <b>esta</b> habitación.`,
+      r`Tres datos no demuestran una ley. Con ellos fijamos las constantes; para poner a prueba el modelo habría que medir en otros instantes (por ejemplo a los \(20\) minutos) y comparar con lo que predice.`,
+      r`Los tres se usaron: el \(30\) entró en la ecuación, el \(100\) fijó \(A\) y el \(80\) fijó \(K\). Sin cualquiera de ellos el modelo queda con una constante libre y no puede predecir.`]},
+ {id:'q_limites', tipo:'mcq', grupo:'cierre', tt:'Hasta dónde vale', enun:r`¿En cuál de estas situaciones el modelo de Newton <b>deja de ser confiable</b>?`,
+  opts:[r`Un bloque grueso de acero recién fundido, a más de \(1000\) °C, enfriándose al aire.`, r`Una taza de café en una cocina grande.`, r`Una pieza chica de PLA sobre la mesa del taller.`, r`Un termo abierto con agua tibia en un cuarto.`], correct:0,
+  fb:[r`Acá fallan dos hipótesis a la vez: el bloque está mucho más caliente por dentro que por fuera (no tiene una sola temperatura), y a \(1000\) °C pierde una parte enorme del calor por radiación, que no es proporcional a la diferencia. El modelo da números, pero no describe lo que pasa.`,
+      r`Este es el caso ideal: objeto chico, ambiente grande que no se calienta, diferencias de temperatura moderadas. Las cuatro hipótesis se cumplen razonablemente.`,
+      r`Pieza chica, taller grande, \(90\) °C de diferencia como mucho: las hipótesis se cumplen. Es el caso que usamos para clasificar en la pantalla 1.`,
+      r`Agua tibia en un cuarto: diferencia chica, ambiente grande. Si el termo está abierto, el agua intercambia calor con el aire y el modelo describe bien lo que pasa.`]},
  {id:'q_signo', tipo:'mcq', grupo:'ley', tt:'Predecí', enun:r`El objeto está a \(100\) °C en una habitación a \(30\) °C: \(T - T_a = 100 - 30 = 70\), positivo. Y el objeto se está <b>enfriando</b>. En \(\dfrac{dT}{dt} = K\,(T - T_a)\), ¿qué signo tiene que tener \(K\)?`,
   opts:[r`Positivo: las constantes de proporcionalidad son positivas.`, r`Negativo: \(\dfrac{dT}{dt} < 0\) y \(T - T_a > 0\), así que \(K\) tiene que ser negativo.`, r`Cero: la temperatura ambiente es constante.`, r`Depende del instante \(t\) que se mire.`], correct:1,
   fb:[r`Con \(K > 0\) la derivada sería positiva y el objeto se <b>calentaría</b> solo en una habitación más fría. Como se enfría, \(K < 0\).`,
@@ -661,13 +754,14 @@ const ALL = ITEMS.concat(...EJ.map(e => e.items));
 const byId = id => ALL.find(x => x.id===id);
 
 /* ===================== ESTADO ===================== */
-const STORE_KEY = 'philips_u5_newton_enfriamiento_v1';
+const STORE_KEY = 'philips_u5_newton_enfriamiento_v2';
 const ST = {
   stage:0, unlocked:0,
   q:{},            // id → índice elegido (mcq)
   num:{},          // id → {val, ok, intentos}
   pistas:{},       // id → cantidad pedida
   trad:{},         // fila → índice elegido
+  clas:{},         // fila → índice elegido (clasificación)
   lab:{K:-0.06},
   meta:'', nombre:'', curso:''
 };
@@ -676,20 +770,20 @@ function cargar(){ try { const s = localStorage.getItem(STORE_KEY); if (s){ deep
 function deepMerge(a, b){ for (const k in b){ if (b[k] && typeof b[k]==='object' && !Array.isArray(b[k]) && a[k] && typeof a[k]==='object') deepMerge(a[k], b[k]); else a[k] = b[k]; } }
 
 /* ===================== NAVEGACIÓN ===================== */
-const PANT = ['Inicio','La ley','Plantear','Resolver','Constantes','Práctica','Cierre'];
-const PANT_C = ['Inicio','Ley','Plantear','Resolver','A y K','Práctica','Cierre'];
+const PANT = ['Inicio','Modelar','La ley','Plantear','Resolver','Constantes','Práctica','Cierre'];
+const PANT_C = ['Inicio','Modelar','Ley','Plantear','Resolver','A y K','Práctica','Cierre'];
 function renderPills(){
   $('#pills').innerHTML = PANT.map((p,i) => `<button type="button" class="pill${i===ST.stage?' active':''}${i<ST.unlocked?' done':''}" data-go="${i}" title="${p}"><span class="n">${i}</span><span class="lbl">${p}</span><span class="lbl-c">${PANT_C[i]}</span></button>`).join('');
   $('#progBar').style.width = (ST.stage/(PANT.length-1)*100) + '%';
   $('#progTxt').textContent = `Pantalla ${ST.stage} · ${PANT[ST.stage]}`;
 }
 function ir(k, silencioso){
-  k = +k; if (isNaN(k) || k<0 || k>6) return;
+  k = +k; if (isNaN(k) || k<0 || k>7) return;
   ST.stage = k; if (k > ST.unlocked) ST.unlocked = k;
-  for (let i=0;i<7;i++){ const el = $('#s'+i); el.classList.toggle('sec-visible', i===k); el.classList.toggle('sec-hidden', i!==k); }
+  for (let i=0;i<8;i++){ const el = $('#s'+i); el.classList.toggle('sec-visible', i===k); el.classList.toggle('sec-hidden', i!==k); }
   renderPills();
-  if (k===4) drawLab();
-  if (k===6) renderReporte();
+  if (k===5) drawLab();
+  if (k===7) renderReporte();
   autoGrowAll();
   if (!silencioso){ guardar(); const sec = $('#s'+k); if (sec.scrollIntoView) sec.scrollIntoView({block:'start', behavior:'instant'}); }
 }
@@ -712,10 +806,12 @@ function htmlItem(it){
 }
 function renderItems(){
   const put = (sel, ids) => { const el = $(sel); if (!el) return; el.innerHTML = ids.map(id => htmlItem(byId(id))).join(''); tex(el); };
+  put('#modQ', ['q_porqueED']);
   put('#leyQ', ['q_signo']);
   put('#planQ1', ['q_ec']); put('#planQ2', ['q_porque']);
   put('#resQ1', ['r_sep']); put('#resQ2', ['r_int']); put('#resQ3', ['r_abs']); put('#resQ4', ['r_desp']);
-  put('#numA', ['n_A']); put('#kQ1', ['q_Kex']); put('#numK', ['n_K']); put('#kQ2', ['q_pred']);
+  put('#numA', ['n_A']); put('#kQ1', ['q_Kex']); put('#numK', ['n_K']); put('#kQ2', ['q_pred']); put('#kQ3', ['q_calib']);
+  put('#cierreQ', ['q_limites']);
   $('#listaEj').innerHTML = EJ.map((e,i) => `
     <article class="ej" data-ej="${e.id}">
       <div class="ej-head"><div class="ej-num">Problema ${i+2}</div><div class="ej-lab"><span class="bullet"></span><span class="lab">laboratorio</span><span class="best">best</span><span class="ia">-IA</span></div></div>
@@ -787,6 +883,23 @@ function pista(box, silencioso){
   const btn = $('[data-pista]', box);
   if (n+1 >= it.pistas.length){ btn.disabled = true; btn.textContent = 'Sin más pistas'; } else $('[data-pn]', btn).textContent = n+2;
   ST.pistas[it.id] = n+1;
+  if (!silencioso) guardar();
+}
+
+/* ===================== CLASIFICACIÓN ===================== */
+function elegirClas(row, c, silencioso){
+  if (ST.clas[row]!==undefined) return;
+  ST.clas[row] = c;
+  const cl = CLAS[row], ok = c===cl.correct;
+  const rowEl = $(`.trad-row[data-crow="${row}"]`);
+  $$('.chip', rowEl).forEach((ch,k) => { ch.disabled = true; if (k===cl.correct) ch.classList.add('right'); else if (k===c) ch.classList.add('wrong'); else ch.style.opacity = .55; });
+  const d = document.createElement('div'); d.className = 'fb show ' + (ok ? 'good' : 'bad'); d.style.gridColumn = '1 / -1'; d.style.marginTop = '0';
+  d.innerHTML = (ok ? '<b>Sí.</b> ' : '<b>No es ese.</b> ') + cl.fb[c]; rowEl.appendChild(d); tex(d);
+  if (Object.keys(ST.clas).length===CLAS.length){
+    const res = $('#clasRes'); const aciertos = CLAS.filter((x,i) => ST.clas[i]===x.correct).length;
+    res.innerHTML = `<div class="fb show info"><b>${aciertos===CLAS.length ? 'Las seis en su lugar.' : aciertos + ' de 6 en su lugar.'}</b> Realidad (lo que se observa y se mide), hipótesis (lo que se supone para simplificar) y modelo (la matemática que resulta) son tres capas distintas. Confundirlas es el error más común al modelar: tomar una hipótesis por un hecho, o una predicción del modelo por una medición.</div>`; tex(res);
+  }
+  actualizarProgreso();
   if (!silencioso) guardar();
 }
 
@@ -869,6 +982,7 @@ function cuenta(grupo){
   return {ok, resp, tot: its.length};
 }
 function tradOk(){ return [0,1,2].filter(i => ST.trad[i]===TRAD[i].correct).length; }
+function clasOk(){ return CLAS.filter((x,i) => ST.clas[i]===x.correct).length; }
 function actualizarProgreso(){
   const el = $('#progreso'); if (!el) return;
   const a = cuenta('ej2'), b = cuenta('ej3');
@@ -877,18 +991,20 @@ function actualizarProgreso(){
 function datosReporte(){
   const pistasN = Object.values(ST.pistas).reduce((s,v)=>s+v,0);
   const intentosN = Object.values(ST.num).reduce((s,v)=>s+(v.intentos||0),0);
-  return {trad: tradOk(), ley: cuenta('ley'), plan: cuenta('plantear'), res: cuenta('resolver'), con: cuenta('constantes'), ej2: cuenta('ej2'), ej3: cuenta('ej3'), pistasN, intentosN};
+  return {trad: tradOk(), clas: clasOk(), mod: cuenta('modelar'), cie: cuenta('cierre'), ley: cuenta('ley'), plan: cuenta('plantear'), res: cuenta('resolver'), con: cuenta('constantes'), ej2: cuenta('ej2'), ej3: cuenta('ej3'), pistasN, intentosN};
 }
 function renderReporte(){
   const d = datosReporte();
   $('#repNombre').value = ST.nombre||''; $('#repCurso').value = ST.curso||''; $('#metaTxt').value = ST.meta||'';
   $('#repGrid').innerHTML = `
+    <div class="rep-box"><div class="k">Modelar</div><div class="v">${d.clas + d.mod.ok} de ${CLAS.length + d.mod.tot}</div><div class="d">clasificación ${d.clas} de ${CLAS.length} · por qué una ED ${d.mod.ok} de ${d.mod.tot}</div></div>
     <div class="rep-box"><div class="k">La ley</div><div class="v">${d.trad + d.ley.ok} de ${3 + d.ley.tot}</div><div class="d">traducción ${d.trad} de 3 · signo de K ${d.ley.ok} de ${d.ley.tot}</div></div>
     <div class="rep-box"><div class="k">Plantear</div><div class="v">${d.plan.ok} de ${d.plan.tot}</div><div class="d">${d.plan.resp} respondidas</div></div>
     <div class="rep-box"><div class="k">Resolver</div><div class="v">${d.res.ok} de ${d.res.tot}</div><div class="d">pasos anticipados</div></div>
-    <div class="rep-box"><div class="k">Las constantes</div><div class="v">${d.con.ok} de ${d.con.tot}</div><div class="d">A, K exacto, K numérico, predicción</div></div>
+    <div class="rep-box"><div class="k">Las constantes</div><div class="v">${d.con.ok} de ${d.con.tot}</div><div class="d">A, K exacto, K numérico, predicción, calibración</div></div>
     <div class="rep-box"><div class="k">Problema 2</div><div class="v">${d.ej2.ok} de ${d.ej2.tot}</div><div class="d">la pieza del taller</div></div>
-    <div class="rep-box"><div class="k">Problema 3</div><div class="v">${d.ej3.ok} de ${d.ej3.tot}</div><div class="d">el agua del mate</div></div>`;
+    <div class="rep-box"><div class="k">Problema 3</div><div class="v">${d.ej3.ok} de ${d.ej3.tot}</div><div class="d">el agua del mate</div></div>
+    <div class="rep-box"><div class="k">Cierre</div><div class="v">${d.cie.ok} de ${d.cie.tot}</div><div class="d">hasta dónde vale el modelo</div></div>`;
 }
 function latin(s){ return String(s).replace(/✓/g,'•').replace(/→/g,'>').replace(/′/g,"'").replace(/−/g,'-').replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu,'').replace(/[^\x00-\xFF]/g,'?'); }
 function estadoItem(it){
@@ -914,9 +1030,11 @@ function descargarPdf(){
   line(`Fecha: ${new Date().toLocaleDateString('es-AR')}`, 10, 'normal', [95,91,83]);
   y += 3;
   line('El problema del apunte (100 °C, ambiente 30 °C, 80 °C a los 10 min)', 12, 'bold', [43,90,147]);
+  line(`Modelar: clasificacion ${d.clas} de ${CLAS.length} · por que una ecuacion diferencial: ${estadoItem(byId('q_porqueED'))}`);
   line(`La ley: traducción ${d.trad} de 3 · signo de K: ${estadoItem(byId('q_signo'))}`);
   line(`Plantear: ${d.plan.ok} de ${d.plan.tot} · Resolver (pasos anticipados): ${d.res.ok} de ${d.res.tot}`);
-  line(`Las constantes: A ${estadoItem(byId('n_A'))} · K exacto ${estadoItem(byId('q_Kex'))} · K numerico ${estadoItem(byId('n_K'))} · T(20) ${estadoItem(byId('q_pred'))}`);
+  line(`Las constantes: A ${estadoItem(byId('n_A'))} · K exacto ${estadoItem(byId('q_Kex'))} · K numerico ${estadoItem(byId('n_K'))} · T(20) ${estadoItem(byId('q_pred'))} · calibracion ${estadoItem(byId('q_calib'))}`);
+  line(`Cierre · hasta donde vale el modelo: ${estadoItem(byId('q_limites'))}`);
   line(`Laboratorio: ultimo K tanteado = ${fmt(ST.lab.K,4)} por minuto`);
   y += 3;
   line('Practica', 12, 'bold', [110,78,170]);
@@ -934,6 +1052,7 @@ function descargarPdf(){
 /* ===================== RESTAURAR ===================== */
 function restaurar(){
   Object.entries(ST.trad).forEach(([row,c]) => { delete ST.trad[row]; elegirTrad(+row, c, true); });
+  Object.entries(ST.clas).forEach(([row,c]) => { delete ST.clas[row]; elegirClas(+row, c, true); });
   Object.entries(ST.q).forEach(([id,j]) => { const box = $(`.act[data-q="${id}"]`); if (box){ delete ST.q[id]; responderQ(box, j, true); } });
   ALL.forEach(it => {
     const box = $(`.act[data-q="${it.id}"], .act[data-n="${it.id}"]`); if (!box) return;
@@ -953,7 +1072,7 @@ document.addEventListener('click', e => {
   const go = e.target.closest('[data-go]'); if (go){ ir(go.dataset.go); return; }
   const pasoBtn = e.target.closest('.paso > button');
   if (pasoBtn){ const p = pasoBtn.parentElement; p.classList.toggle('open'); if (p.classList.contains('open')){ tex(p); if (p.getBoundingClientRect().top < 100) p.scrollIntoView({block:'start'}); } return; }
-  const chip = e.target.closest('.trad-row .chip'); if (chip && !chip.disabled){ elegirTrad(+chip.closest('.trad-row').dataset.row, +chip.dataset.c); return; }
+  const chip = e.target.closest('.trad-row .chip'); if (chip && !chip.disabled){ const row = chip.closest('.trad-row'); if (row.dataset.crow!==undefined) elegirClas(+row.dataset.crow, +chip.dataset.c); else elegirTrad(+row.dataset.row, +chip.dataset.c); return; }
   const opt = e.target.closest('.opt');
   if (opt && !opt.disabled){ const box = opt.closest('.act[data-q]'); if (box){ responderQ(box, +opt.dataset.j); return; } }
   const box = e.target.closest('.act');
@@ -1044,10 +1163,12 @@ function correrTests(){
   ok('ítems: ids únicos', new Set(ALL.map(i=>i.id)).size===ALL.length, ALL.length + ' ítems');
   ok('mcq: 4 opciones y 4 fb cada una', mcqs.every(q => q.opts.length===4 && q.fb.length===4 && q.correct>=0 && q.correct<4), mcqs.length + ' mcq');
   const pos = [0,1,2,3].map(k => mcqs.filter(q=>q.correct===k).length);
-  ok('mcq: la correcta varía de posición (cada una ≥ 3)', pos.every(p => p>=3), pos.join('/'));
+  ok('mcq: la correcta varía de posición (cada una ≥ 4)', pos.every(p => p>=4), pos.join('/'));
   ok('num: 6 numéricos con pistas, sol y tolerancia', nums.length===6 && nums.every(n => n.pistas.length>=2 && n.sol && n.tol>0));
   ok('práctica: 2 problemas × 5 ítems', EJ.length===2 && EJ.every(e => e.items.length===5));
   ok('traductor: 3 filas, fb de error en las no correctas', TRAD.length===3 && TRAD.every(t => [0,1,2].every(k => k===t.correct || t.no[k].length>0)));
+  ok('clasificación: 6 filas, 3 fb cada una, las tres categorías con ≥ 1', CLAS.length===6 && CLAS.every(c => c.fb.length===3) && [0,1,2].every(k => CLAS.some(c => c.correct===k)));
+  ok('ítems nuevos: modelar, calibración y cierre presentes', !!byId('q_porqueED') && !!byId('q_calib') && !!byId('q_limites') && byId('q_porqueED').grupo==='modelar' && byId('q_limites').grupo==='cierre');
   ok('P1: A = 70, 5/7, K = −0,033647', 100-30===70 && Math.abs(50/70 - 5/7) < 1e-12 && Math.abs(Math.log(5/7)/10 + 0.033647) < 1e-5);
   ok('P1: T(10) = 80 y T(20) = 65,71', Math.abs(30 + 70*Math.exp(Math.log(5/7)) - 80) < 1e-9 && Math.abs(30 + 70*25/49 - 65.714) < 0.001);
   ok('P2: A = 180, 2/3, K = −0,081093, T(10) = 100', 200-20===180 && Math.abs(120/180 - 2/3) < 1e-12 && Math.abs(Math.log(2/3)/5 + 0.081093) < 1e-5 && Math.abs(20 + 180*4/9 - 100) < 1e-9);
@@ -1055,7 +1176,7 @@ function correrTests(){
   ok('num: respuestas de referencia coinciden', Math.abs(byId('n_A').resp-70)<1e-9 && Math.abs(byId('n_K').resp - Math.log(5/7)/10) < 2e-5 && Math.abs(byId('e2b').resp-180)<1e-9 && Math.abs(byId('e2d').resp - Math.log(2/3)/5) < 2e-5 && Math.abs(byId('e3b').resp-60)<1e-9 && Math.abs(byId('e3d').resp + Math.log(2)/15) < 2e-5);
   ok('parseNum: coma y menos Unicode', parseNum('−0,0336')===-0.0336 && parseNum('-0.0336')===-0.0336 && parseNum('70')===70 && isNaN(parseNum('abc')));
   ok('lab: K exacto da T(10) = 80 (dentro de la tolerancia del tanteo)', Math.abs(30 + 70*Math.exp(-0.0335*10) - 80) < 0.35);
-  ok('DOM: 7 secciones, 7 píldoras', $$('main > section').length===7 && $$('.pill').length===7);
+  ok('DOM: 8 secciones, 8 píldoras', $$('main > section').length===8 && $$('.pill').length===8);
   ok('compuertas: 3 recuadros cerrados al inicio sin estado', $$('.gated-box').length===3 && (Object.keys(ST.q).length ? true : $$('.gated-box.open').length===0));
   ok('DOM: todos los ítems renderizados', ALL.every(i => $(`.act[data-q="${i.id}"], .act[data-n="${i.id}"]`)));
   ok('sin .katex-error', $$('.katex-error').length===0);
